@@ -31,6 +31,7 @@ Una vez poblada la base de datos, ejecuta este script para correr los reportes a
 ### 1. Top 5 Clientes por Gasto Total
 * **Técnica utilizada:** `INNER JOIN`, `GROUP BY`, `SUM()`, `COALESCE()` y `LIMIT`.
 * **Propósito:** Identificar a los clientes de mayor valor (*VIP*) considerando únicamente pedidos válidos (excluyendo aquellos con estado `'Cancelado'`).
+* **Hallazgo:** Los 5 clientes que mas gastaron son Micaela Rios (id 16) con $1714000.00, Sofia Martinez (id 14) con $1699000.00, Diego Castro (id 15) con $1585700.00, Facundo Medina (id 13) $1230000.00 y Nicolas Sosa (id 9) con $967700.00. Se recomienda categorizar estos clientes como "VIP" en el futuro para otorgar prioridad en envios o descuentos.
 
 ### 2. Ventas Totales del Mes Actual
 * **Técnica utilizada:** `DATE_TRUNC()`, `TO_CHAR()`, filtro de rango de fechas y `GROUP BY`.
