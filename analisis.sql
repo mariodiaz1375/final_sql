@@ -66,6 +66,7 @@ WITH ventas_por_producto AS (  -- se usa una cte para mejor legibilidad
 ranking_por_categoria AS (  --segunda cte: consulta a la primer cte para el ranking
     SELECT 
         categoria,
+		producto_id,
         producto,
         marca,
         precio,
@@ -80,6 +81,7 @@ ranking_por_categoria AS (  --segunda cte: consulta a la primer cte para el rank
 SELECT -- consulta final
     categoria,
     rank_posicion,
+	producto_id,
     producto,
     marca,
     precio,
