@@ -36,14 +36,17 @@ Una vez poblada la base de datos, ejecuta este script para correr los reportes a
 ### 2. Ventas Totales del Mes Actual
 * **Técnica utilizada:** `DATE_TRUNC()`, `TO_CHAR()`, filtro de rango de fechas y `GROUP BY`.
 * **Propósito:** Calcular el volumen de ventas e ingresos totales del mes en curso de forma dinámica mediante funciones de fecha de PostgreSQL.
+* **Hallazgo:** Los ingresos totales de este mes fueros de $14815970.00 con 96 productos vendidos.
 
 ### 3. Bottom 3: Productos Menos Vendidos
 * **Técnica utilizada:** `LEFT JOIN`, `COALESCE()`, `SUM(dp.cantidad)` y extracción de atributos desde columnas `JSONB` (`->> 'marca'`).
 * **Propósito:** Detectar productos con bajo rotado o sin ventas (0 unidades) para tomar decisiones de liquidación de stock o marketing.
+* **Hallazgo:** Los 3 productos menos vendidos son Camisa Formal Manga Larga (id 20) con 1 unidad, Juego de Sabanas 2 1/2 Plazas 600 Hilos (id 25) con 1 unidad y Remera Algodón Básica Unisex (id 16) con 2 unidades. Se recomienda realizar compras a los proveedores de forma menos frecuente. No se encontraron productos sin ventas.
 
 ### 4. Ranking de Productos por Categoría
 * **Técnica utilizada:** CTEs (`WITH`), `LEFT JOIN` múltiple y Window Function `RANK() OVER (PARTITION BY ... ORDER BY ...)`
 * **Propósito:** Clasificar los productos más vendidos de forma independiente dentro de cada categoría del catálogo.
+* **Hallazgo:** el producto mas vendido de la categoria electronica es el Teclado Mecánico RGB (id 2) con 15 unidades, Lámpara de Escritorio LED (id 5) con 6 unidades y Zapatillas Deportivas Running (id 3)	con 9 unidades. Se recomienda fortalecer el stock y pactar con los proveedores descuentos por mas cantidad.
 
 ---
 
